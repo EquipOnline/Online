@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Support | Equip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--teal:#0b4746;--teal-deep:#083f3f;--teal-bright:#16bebe;--paper:#f6f2ec;--paper-2:#f0f4f2;--ink:#12302f;--muted:#5d7070;--gold:#c98635;--white:#fffdf8;--line:rgba(18,48,47,.13)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  header{position:sticky;top:0;z-index:10;background:rgba(8,63,63,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .logo{width:276px;height:74px;background:url("equip-assets/equip-header-logo-white.png") left center/contain no-repeat;filter:drop-shadow(0 0 10px rgba(255,255,255,.18))}
+  nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  nav a{color:var(--white);font-size:14px;font-weight:500}
+  nav a.nav-cta{min-width:168px;padding:11px 24px;border-radius:30px;background:var(--teal-bright);color:var(--teal-deep);font-size:13px;font-weight:700;text-align:center;white-space:nowrap}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.04}
+  .eyebrow{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--gold);margin-bottom:18px}
+  .hero{background:var(--teal);color:var(--white);padding:112px 0 88px}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:72px;align-items:center}
+  h1{font-size:clamp(46px,7vw,86px);max-width:760px}
+  .lead{font-size:18px;color:rgba(255,255,255,.74);max-width:680px;margin-top:28px}
+  .hero-img{height:390px;border-radius:8px;object-fit:cover;object-position:center 42%;width:100%}
+  section{padding:96px 0}
+  .split{display:grid;grid-template-columns:.86fr 1.14fr;gap:74px;align-items:start}
+  h2{font-size:clamp(34px,4vw,54px);margin-bottom:22px}
+  .copy p{color:var(--muted);font-size:17px;margin-bottom:18px;max-width:720px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .card{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:24px}
+  .card h3{font-size:22px;margin-bottom:10px}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .why{background:var(--white)}
+  .list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .list li{border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:24px}
+  .list h3{font-size:22px;margin-bottom:10px}
+  .list p{color:var(--muted);font-size:14.5px}
+  .cta{background:var(--teal);color:var(--white);padding:72px 0}
+  .cta-inner{display:flex;justify-content:space-between;gap:28px;align-items:center}
+  .cta h2{font-size:clamp(30px,4vw,48px);margin:0}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--teal-bright);color:var(--teal-deep);font-weight:700}
+  footer{background:#062f2f;color:rgba(255,255,255,.68);padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:var(--white)}
+  @media (max-width:900px){.nav{height:auto;padding:18px 0;align-items:flex-start}.logo{width:220px;height:60px}.hero-grid,.split,.cards,.list{grid-template-columns:1fr}.hero{padding-top:78px}.hero-img{height:300px}.cta-inner{display:block}.button{margin-top:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html#top" aria-label="Equip home"></a>
+    <nav>
+      <a href="index.html#process">Our Process</a>
+      <a href="about.html">About Us</a>
+      <a href="academic-support.html">Academic Support</a>
+      <a href="mindskills.html">Mindskills</a>
+      <a href="counselling.html">Counselling</a>
+      <a href="booking.html" class="nav-cta">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Academic Support</div>
+        <h1>Academic support with an EQ lens.</h1>
+        <p class="lead">Equip academic support helps children catch up, keep up and grow confidence, while paying attention to how they feel about learning, school and themselves.</p>
+      </div>
+      <img class="hero-img" src="equip-assets/academic-writing.png" alt="Child writing in a notebook">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">What Makes It Different</div>
+        <h2>It is not just tutoring. It is student support.</h2>
+      </div>
+      <div class="copy">
+        <p>Every member of our academic team holds an honours degree in psychology. That changes what a session looks like.</p>
+        <p>We are not only working through a textbook. We are paying attention to confidence, motivation, pressure, learning habits and the emotional blocks that can sit underneath school struggles.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Subject Help</h3>
+            <p>Support for specific school subjects, gaps, study habits and academic goals.</p>
+          </article>
+          <article class="card">
+            <h3>Confidence</h3>
+            <p>Children build a more positive relationship with learning, not only better marks.</p>
+          </article>
+          <article class="card">
+            <h3>Context</h3>
+            <p>We consider the child, family, school rhythm and learning needs together.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Why Families Choose It</div>
+        <h2>Support that understands the whole learner.</h2>
+      </div>
+      <ul class="list">
+        <li><h3>Psychology-trained specialists</h3><p>Subject support is delivered with developmentally aware insight.</p></li>
+        <li><h3>Family partnership</h3><p>Parents are part of the plan from the first conversation onward.</p></li>
+        <li><h3>Psychosocial school support</h3><p>Friendships, motivation, pressure and transitions are included in the picture.</p></li>
+        <li><h3>Additional learning needs</h3><p>Sessions can be adapted for how each child actually works best.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <h2>Want to talk about academic support?</h2>
+      <a class="button" href="booking.html">Book a consultation</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 EQUIP. All rights reserved.</span>
+    <span><a href="mailto:info@equipgroup.org">info@equipgroup.org</a></span>
+    <span><a href="https://wa.me/27658450701">WhatsApp 0658450701</a></span>
+    <span>Locations: Online Â· KZN North Coast Â· Cape Town</span>
+  </div>
+</footer>
+</body>
+</html>
+

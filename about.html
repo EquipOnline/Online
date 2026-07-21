@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Equip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0b4746;
+    --teal-deep:#083f3f;
+    --teal-bright:#16bebe;
+    --paper:#f6f2ec;
+    --ink:#12302f;
+    --muted:#5d7070;
+    --gold:#c98635;
+    --white:#fffdf8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  header{position:sticky;top:0;z-index:10;background:rgba(8,63,63,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .logo{width:276px;height:74px;background:url("equip-assets/equip-header-logo-white.png") left center/contain no-repeat;filter:drop-shadow(0 0 10px rgba(255,255,255,.18))}
+  nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  nav a{color:var(--white);font-size:14px;font-weight:500}
+  nav a.nav-cta{min-width:168px;padding:11px 24px;border-radius:30px;background:var(--teal-bright);color:var(--teal-deep);font-size:13px;font-weight:700;text-align:center;white-space:nowrap}
+  .hero{background:var(--teal);color:var(--white);padding:112px 0 86px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:70px;align-items:center}
+  .eyebrow{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--gold);margin-bottom:18px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.04}
+  h1{font-size:clamp(46px,7vw,86px);max-width:780px}
+  .lead{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin-top:28px}
+  .hero-photo{width:100%;height:390px;border-radius:8px;object-fit:cover;object-position:center 44%;display:block}
+  section{padding:96px 0}
+  .split{display:grid;grid-template-columns:.88fr 1.12fr;gap:76px;align-items:start}
+  h2{font-size:clamp(34px,4vw,54px);margin-bottom:22px}
+  .copy p{color:var(--muted);font-size:17px;margin-bottom:18px;max-width:720px}
+  .belief-card{border:1px solid rgba(18,48,47,.13);border-radius:8px;background:var(--white);padding:28px;margin:34px 0}
+  .belief-card strong{display:block;font-family:Fraunces,Georgia,serif;font-size:24px;line-height:1.15;color:var(--teal-deep);font-weight:500;margin-bottom:12px}
+  .belief-card p{font-size:15px;margin:0;color:var(--muted)}
+  .location-feature{grid-column:1/-1;display:grid;grid-template-columns:.88fr 1.12fr;gap:76px;align-items:stretch;margin:34px 0 10px}
+  .location-intro{background:var(--white);border:1px solid rgba(18,48,47,.13);border-radius:8px;padding:34px}
+  .location-intro h2{font-size:clamp(32px,4vw,50px);margin-bottom:18px}
+  .location-intro p{color:var(--muted);font-size:16px;max-width:420px}
+  .location-card{border:1px solid rgba(18,48,47,.13);border-radius:8px;background:var(--teal);color:var(--white);padding:34px;margin:0}
+  .location-card strong{display:block;font-family:Fraunces,Georgia,serif;font-size:24px;line-height:1.15;font-weight:500;margin-bottom:12px}
+  .location-card p{font-size:15px;margin:0 0 18px;color:rgba(255,255,255,.76)}
+  .location-list{display:flex;flex-wrap:wrap;gap:10px}
+  .location-list span{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;background:rgba(255,255,255,.08)}
+  .location-list .online{background:var(--teal-bright);border-color:var(--teal-bright);color:var(--teal-deep)}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+  .split > .values{grid-column:1/-1;margin-top:22px}
+  .value{border:1px solid rgba(18,48,47,.13);border-radius:8px;padding:24px;background:var(--white)}
+  .value h3{font-size:22px;margin-bottom:10px}
+  .value p{color:var(--muted);font-size:14.5px}
+  .team{background:var(--white)}
+  .section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:34px}
+  .section-head p{max-width:460px;color:var(--muted)}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .team-card{min-height:420px;border:1px solid rgba(18,48,47,.12);border-radius:8px;background:var(--paper);padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+  .portrait{aspect-ratio:1/1;border-radius:6px;background:#d7d2c8;overflow:hidden;margin-bottom:22px}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+  .photo-nic{object-position:center 46%}
+  .photo-marylyn{object-position:center 24%}
+  .photo-stephanie{object-position:center 25%}
+  .photo-sach{object-position:center 18%}
+  .photo-emma{object-position:center 24%}
+  .photo-tashlene{object-position:center 18%}
+  .photo-cleo{object-position:center 44%}
+  .photo-fred{object-position:center 2%}
+  .team-card h3{font-size:24px;margin-bottom:8px}
+  .role{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--gold);margin-bottom:14px}
+  .team-card p{color:var(--muted);font-size:14.5px}
+  .credentials{border-top:1px solid rgba(18,48,47,.12);padding-top:14px;margin-top:18px}
+  .cta{background:var(--teal);color:var(--white);padding:72px 0}
+  .cta-inner{display:flex;justify-content:space-between;gap:28px;align-items:center}
+  .cta h2{font-size:clamp(30px,4vw,48px);margin:0}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--teal-bright);color:var(--teal-deep);font-weight:700}
+  footer{background:#062f2f;color:rgba(255,255,255,.68);padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:var(--white)}
+  @media (max-width:900px){
+    .nav{height:auto;padding:18px 0;align-items:flex-start}
+    .logo{width:220px;height:60px}
+    .hero-grid,.split,.team-grid,.values,.location-feature{grid-template-columns:1fr}
+    .hero{padding-top:78px}
+    .hero-photo{height:300px}
+    .section-head,.cta-inner{display:block}
+    .button{margin-top:24px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html#top" aria-label="Equip home"></a>
+    <nav>
+      <a href="index.html#process">Our Process</a>
+      <a href="about.html">About Us</a>
+      <a href="academic-support.html">Academic Support</a>
+      <a href="mindskills.html">Mindskills</a>
+      <a href="counselling.html">Counselling</a>
+      <a href="booking.html" class="nav-cta">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">About Equip</div>
+        <h1>Whole-child support, built around real families.</h1>
+        <p class="lead">Equip brings emotional development, counselling and academic support into one joined-up plan for each child. We listen first, understand the child in context, and then build support that fits their real life.</p>
+      </div>
+      <img class="hero-photo" src="equip-assets/about-learning.png" alt="Children smiling with books on their heads">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Who We Are</div>
+        <h2>A specialist team with one shared language.</h2>
+      </div>
+      <div class="copy">
+        <p>Equip exists for children and families who need support that feels personal, practical and connected. We work with care, curiosity and clear communication, so families know what is happening and why.</p>
+        <p>Our approach is developmentally minded. That means we look at confidence, learning, emotions, family rhythms and school demands together, then shape the right next step.</p>
+      <div class="belief-card">
+        <strong>Because learning is emotionally driven, and growth requires confidence.</strong>
+        <p>Our team works together so children are not treated as separate pieces of a puzzle. The same child who needs confidence in maths may also need help with anxiety, focus, friendship or big emotions.</p>
+      </div>
+      </div>
+      <div class="location-feature">
+        <div class="location-intro">
+          <div class="eyebrow">Where We Work</div>
+          <h2>Local roots, strong online support.</h2>
+          <p>Equip works from local bases while keeping online support central, flexible and easy to access.</p>
+        </div>
+        <div class="location-card">
+          <strong>Rooted locally, built strongly online.</strong>
+          <p>Equip currently works with families in KZN North Coast and Cape Town, with a strong online presence that makes support more accessible and consistent.</p>
+          <div class="location-list" aria-label="Equip locations">
+            <span class="online">Online</span>
+            <span>KZN North Coast</span>
+            <span>Cape Town</span>
+          </div>
+        </div>
+      </div>
+      <div class="values">
+        <article class="value">
+          <h3>Integrated</h3>
+          <p>Our work connects emotional growth, learning support and counselling into one clearer plan.</p>
+        </article>
+        <article class="value">
+          <h3>Practical</h3>
+          <p>Families leave with support that can be used at home, at school and in sessions.</p>
+        </article>
+        <article class="value">
+          <h3>Child-led</h3>
+          <p>Every plan starts with the child's needs, strengths, pace and context.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Meet The Team</div>
+          <h2>The people behind Equip.</h2>
+        </div>
+        <p>Meet the team bringing psychological insight, education support and counselling care into Equip's whole-child approach.</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-nic" src="equip-assets/nic-venter.png" alt="Nic Venter"></div>
+            <h3>Nic Venter</h3>
+            <div class="role">CEO and Head Mentor</div>
+            <p class="credentials">M.Sc Psychology<br>M.A Counselling Psychology</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-marylyn" src="equip-assets/marylyn-van-vuuren.png" alt="Marylyn van Vuuren"></div>
+            <h3>Marylyn van Vuuren</h3>
+            <div class="role">Operations Manager and Education Head</div>
+            <p class="credentials">B.Hons Psychology<br>Play Therapy Level 1</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-stephanie" src="equip-assets/stephanie-wernberg.jpeg" alt="Stephanie Wernberg"></div>
+            <h3>Stephanie Wernberg</h3>
+            <div class="role">Psychologist</div>
+            <p class="credentials">M.A in Counselling (Northwestern University)</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-sach" src="equip-assets/sach-galhenage.jpg" alt="Sach Galhenage"></div>
+            <h3>Sach Galhenage</h3>
+            <div class="role">Counselling and Sport Psychologist</div>
+            <p class="credentials">M.A Counselling Psychology</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-emma" src="equip-assets/emma-rossouw.jpg" alt="Emma Rossouw"></div>
+            <h3>Emma Rossouw</h3>
+            <div class="role">Counsellor</div>
+            <p class="credentials">B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-tashlene" src="equip-assets/tashlene-cronje.jpg" alt="Tashlene Cronje"></div>
+            <h3>Tashlene Cronje</h3>
+            <div class="role">Trauma Counsellor</div>
+            <p class="credentials">B.Hons Psychology<br>Trauma Counselling<br>Advanced Counselling Level 1</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-cleo" src="equip-assets/cleo-sirin.png" alt="Cleo Sirin"></div>
+            <h3>Cleo Sirin</h3>
+            <div class="role">Counsellor</div>
+            <p class="credentials">B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+        </article>
+        <article class="team-card">
+          <div>
+            <div class="portrait"><img class="photo-fred" src="equip-assets/fred-turner.jpeg" alt="Fred Turner"></div>
+            <h3>Fred Turner</h3>
+            <div class="role">Counsellor</div>
+            <p class="credentials">B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <h2>Ready to start with a conversation?</h2>
+      <a class="button" href="booking.html">Book a consultation</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 EQUIP. All rights reserved.</span>
+    <a href="mailto:info@equipgroup.org">info@equipgroup.org</a>
+    <a href="https://wa.me/27658450701">WhatsApp 0658450701</a>
+    <span>Locations: Online Â· KZN North Coast Â· Cape Town</span>
+  </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counselling | Equip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0b4746;
+    --teal-deep:#083f3f;
+    --teal-bright:#16bebe;
+    --paper:#f6f2ec;
+    --paper-2:#f0f4f2;
+    --ink:#12302f;
+    --muted:#5d7070;
+    --gold:#c98635;
+    --white:#fffdf8;
+    --line:rgba(18,48,47,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  header{position:sticky;top:0;z-index:10;background:rgba(8,63,63,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .logo{width:276px;height:74px;background:url("equip-assets/equip-header-logo-white.png") left center/contain no-repeat;filter:drop-shadow(0 0 10px rgba(255,255,255,.18))}
+  nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  nav a{color:var(--white);font-size:14px;font-weight:500}
+  nav a.nav-cta{min-width:168px;padding:11px 24px;border-radius:30px;background:var(--teal-bright);color:var(--teal-deep);font-size:13px;font-weight:700;text-align:center;white-space:nowrap}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.04}
+  .eyebrow{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--gold);margin-bottom:18px}
+  .hero{background:var(--teal);color:var(--white);padding:112px 0 88px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.82fr);gap:72px;align-items:center}
+  h1{font-size:clamp(46px,7vw,86px);max-width:760px}
+  .lead{font-size:18px;color:rgba(255,255,255,.74);max-width:680px;margin-top:28px}
+  .hero-photo{width:100%;height:390px;border-radius:8px;object-fit:cover;object-position:center 45%;display:block;filter:drop-shadow(0 24px 60px rgba(0,0,0,.18))}
+  section{padding:96px 0}
+  .intro{background:var(--white)}
+  .split{display:grid;grid-template-columns:.86fr 1.14fr;gap:74px;align-items:start}
+  h2{font-size:clamp(34px,4vw,54px);margin-bottom:22px}
+  .intro-image{display:block;width:100%;height:clamp(320px,34vw,460px);margin-top:34px;border-radius:8px;object-fit:cover;object-position:center 54%;box-shadow:0 24px 60px rgba(0,42,42,.10)}
+  .copy p{color:var(--muted);font-size:17px;margin-bottom:18px;max-width:720px}
+  .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .support-card{border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:24px}
+  .support-card h3{font-size:22px;margin-bottom:10px}
+  .support-card p{font-size:14.5px;color:var(--muted)}
+  .free-services{background:var(--paper-2)}
+  .free-services .copy p{max-width:760px}
+  .free-contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .free-contact a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;padding:0 18px;background:var(--teal);color:var(--white);font-weight:700}
+  .free-contact a:first-child{background:var(--teal-bright);color:var(--teal-deep)}
+  .booking{background:var(--teal);color:var(--white)}
+  .section-head{display:flex;justify-content:space-between;gap:32px;align-items:end;margin-bottom:34px}
+  .section-head p{max-width:500px;color:rgba(255,255,255,.72)}
+  .counsellor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .counsellor-card{min-height:430px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.055);padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+  .counsellor-card:hover,.counsellor-card:focus,.counsellor-card:focus-within{transform:translateY(-4px);border-color:rgba(22,190,190,.52);background:rgba(255,255,255,.075)}
+  .counsellor-card:focus{outline:2px solid var(--teal-bright);outline-offset:4px}
+  .counsellor-avatar{aspect-ratio:1/1;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:22px}
+  .counsellor-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+  .photo-nic{object-position:center 46%}
+  .photo-stephanie{object-position:center 25%}
+  .photo-sach{object-position:center 18%}
+  .photo-emma{object-position:center 24%}
+  .photo-tashlene{object-position:center 18%}
+  .photo-cleo{object-position:center 44%}
+  .photo-fred{object-position:center 2%}
+  .counsellor-card h3{font-size:24px;margin-bottom:10px;color:var(--white)}
+  .counsellor-card p{color:rgba(255,255,255,.68);font-size:14.5px}
+  .counsellor-role{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--gold);margin-bottom:12px}
+  .availability{position:absolute;inset:0;padding:28px;background:linear-gradient(145deg,rgba(6,47,47,.98),rgba(8,63,63,.94));display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(14px);transition:opacity .28s ease,transform .28s ease;pointer-events:none}
+  .counsellor-card:hover .availability,.counsellor-card:focus .availability,.counsellor-card:focus-within .availability{opacity:1;transform:translateY(0)}
+  .availability h4{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--gold);margin-bottom:18px}
+  .availability ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+  .availability li{border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.075);color:var(--white);font-size:14px;font-weight:600;line-height:1.25;padding:9px 13px}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--teal-bright);color:var(--teal-deep);font-weight:700;margin-top:24px}
+  .cta{background:var(--paper-2)}
+  .cta-inner{display:flex;justify-content:space-between;gap:28px;align-items:center}
+  .cta p{color:var(--muted);max-width:560px}
+  footer{background:#062f2f;color:rgba(255,255,255,.68);padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:var(--white)}
+  @media (max-width:900px){
+    .nav{height:auto;padding:18px 0;align-items:flex-start}
+    .logo{width:220px;height:60px}
+    .hero-grid,.split,.support-grid,.counsellor-grid{grid-template-columns:1fr}
+    .hero{padding-top:78px}
+    .hero-photo{height:300px}
+    .intro-image{height:280px;margin-top:24px}
+    .section-head,.cta-inner{display:block}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html#top" aria-label="Equip home"></a>
+    <nav>
+      <a href="index.html#process">Our Process</a>
+      <a href="about.html">About Us</a>
+      <a href="academic-support.html">Academic Support</a>
+      <a href="mindskills.html">Mindskills</a>
+      <a href="counselling.html">Counselling</a>
+      <a href="booking.html" class="nav-cta">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Counselling</div>
+        <h1>Counselling services for children, adults and families.</h1>
+        <p class="lead">Equip counselling supports children, adults, couples and families through anxiety, change, self-esteem, emotional regulation, relationships and difficult experiences.</p>
+      </div>
+      <img class="hero-photo" src="equip-assets/counselling-session.png" alt="A counselling conversation">
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">How It Helps</div>
+        <h2>A calm space to be understood.</h2>
+        <img class="intro-image" src="equip-assets/counselling-room-session.png" alt="A counselling session in a calm room">
+      </div>
+      <div class="copy">
+        <p>Our counselling work is practical, relational and person-centred. We look at what is happening emotionally, socially, at home, in relationships, at school or at work, then shape support around the person's needs.</p>
+        <p>For children and teens, counselling can connect with Mindskills and academic support where helpful. For adults, couples and families, the focus is on clear support, emotional insight and practical next steps.</p>
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Emotions</h3>
+            <p>Support for anxiety, big feelings, confidence, self-esteem, emotional regulation and stress.</p>
+          </article>
+          <article class="support-card">
+            <h3>Transitions</h3>
+            <p>Guidance through change, school or work stress, friendship strain, relationship pressure, family shifts and new routines.</p>
+          </article>
+          <article class="support-card">
+            <h3>Relationships</h3>
+            <p>Space for family, relationship and caregiver conversations so support can continue beyond the session.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-services">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Free Services</div>
+        <h2>Free online counselling for those in need.</h2>
+      </div>
+      <div class="copy">
+        <p>Equip offers free online counselling to people who need support and do not currently have the financial means to access paid counselling services.</p>
+        <p>To enquire or book free online counselling, please email us or send a WhatsApp message and our team will guide you through the next step.</p>
+        <div class="free-contact">
+          <a href="mailto:online@equipgroup.org">online@equipgroup.org</a>
+          <a href="https://wa.me/27658450701">WhatsApp 0658450701</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="counselling-team">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Counselling Team</div>
+          <h2>Choose from our counselling team.</h2>
+        </div>
+        <p>Our team offers support across counselling, psychotherapy, trauma counselling, sport psychology, relationship counselling, Mindskills and online sessions.</p>
+      </div>
+      <div class="counsellor-grid">
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-nic" src="equip-assets/nic-venter.png" alt="Nic Venter"></div>
+            <h3>Nic Venter</h3>
+            <div class="counsellor-role">CEO and Head Mentor</div>
+            <p>M.Sc Psychology<br>M.A Counselling Psychology</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Counselling</li>
+              <li>Mindskills</li>
+              <li>Sport Psychology</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-stephanie" src="equip-assets/stephanie-wernberg.jpeg" alt="Stephanie Wernberg"></div>
+            <h3>Stephanie Wernberg</h3>
+            <div class="counsellor-role">Psychologist</div>
+            <p>M.A in Counselling (Northwestern University)</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Psychotherapy</li>
+              <li>Relationship Counselling</li>
+              <li>Online Mindskills</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-sach" src="equip-assets/sach-galhenage.jpg" alt="Sach Galhenage"></div>
+            <h3>Sach Galhenage</h3>
+            <div class="counsellor-role">Counselling and Sport Psychologist</div>
+            <p>M.A Counselling Psychology</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Psychotherapy</li>
+              <li>Sport Psychology</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-emma" src="equip-assets/emma-rossouw.jpg" alt="Emma Rossouw"></div>
+            <h3>Emma Rossouw</h3>
+            <div class="counsellor-role">Counsellor</div>
+            <p>B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Counselling</li>
+              <li>Academic Support</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-tashlene" src="equip-assets/tashlene-cronje.jpg" alt="Tashlene Cronje"></div>
+            <h3>Tashlene Cronje</h3>
+            <div class="counsellor-role">Trauma Counsellor</div>
+            <p>B.Hons Psychology<br>Trauma Counselling<br>Advanced Counselling Level 1</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Counselling</li>
+              <li>Trauma Counselling</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-cleo" src="equip-assets/cleo-sirin.png" alt="Cleo Sirin"></div>
+            <h3>Cleo Sirin</h3>
+            <div class="counsellor-role">Counsellor</div>
+            <p>B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Counselling</li>
+              <li>Academic Support</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+        <article class="counsellor-card" tabindex="0">
+          <div>
+            <div class="counsellor-avatar"><img class="photo-fred" src="equip-assets/fred-turner.jpeg" alt="Fred Turner"></div>
+            <h3>Fred Turner</h3>
+            <div class="counsellor-role">Counsellor</div>
+            <p>B.Hons Psychology<br>Advanced Counselling Level 1</p>
+          </div>
+          <a class="button" href="booking.html">Book</a>
+          <div class="availability">
+            <h4>Available for:</h4>
+            <ul>
+              <li>Counselling</li>
+              <li>Academic Support</li>
+              <li>Online</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <div>
+        <div class="eyebrow">Next Step</div>
+        <h2>Not sure who to book?</h2>
+        <p>Start with a conversation and we can guide you toward the right counsellor or support pathway.</p>
+      </div>
+      <a class="button" href="booking.html">Book a consultation</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 EQUIP. All rights reserved.</span>
+    <span><a href="mailto:info@equipgroup.org">info@equipgroup.org</a></span>
+    <span><a href="https://wa.me/27658450701">WhatsApp 0658450701</a></span>
+    <span>Locations: Online Â· KZN North Coast Â· Cape Town</span>
+  </div>
+</footer>
+</body>
+</html>
+
