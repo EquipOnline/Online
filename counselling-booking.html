@@ -3,22 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a Consultation | Equip</title>
+<title>Counselling Enquiry | Equip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --teal:#0b4c49;
-    --teal-deep:#062f2f;
-    --teal-bright:#16bebe;
-    --paper:#f7f4ee;
-    --paper-2:#eef4f1;
-    --ink:#082b2b;
-    --muted:#426160;
-    --line:rgba(18,48,47,.16);
-    --gold:#c77827;
-    --white:#fffaf3;
+    --teal:#0b4c49;--teal-deep:#062f2f;--teal-bright:#16bebe;--paper:#f7f4ee;--paper-2:#eef4f1;--ink:#082b2b;--muted:#426160;--line:rgba(18,48,47,.16);--gold:#c77827;--white:#fffaf3;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
@@ -45,14 +36,10 @@
   form{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:34px}
   .field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-  label,.group-label{font-weight:700;font-size:14px;color:var(--ink)}
+  label{font-weight:700;font-size:14px;color:var(--ink)}
   input,select,textarea{width:100%;border:1px solid rgba(18,48,47,.22);border-radius:8px;background:#fff;padding:13px 14px;font:inherit;color:var(--ink)}
   textarea{min-height:132px;resize:vertical}
   input:focus,select:focus,textarea:focus{outline:2px solid rgba(22,190,190,.5);border-color:var(--teal-bright)}
-  .check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0 22px}
-  .check{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(18,48,47,.14);border-radius:8px;padding:12px;background:var(--paper)}
-  .check input{width:auto;margin-top:5px}
-  .check span{font-size:14.5px;color:var(--muted)}
   .privacy{display:flex;gap:10px;align-items:flex-start;margin:8px 0 24px;color:var(--muted);font-size:14px}
   .privacy input{width:auto;margin-top:5px}
   .hidden-field{display:none}
@@ -63,7 +50,7 @@
   @media(max-width:860px){
     .nav{height:auto;padding:18px 0;align-items:flex-start}
     .logo{width:220px;height:60px}
-    .hero-grid,.field-grid,.check-grid{grid-template-columns:1fr}
+    .hero-grid,.field-grid{grid-template-columns:1fr}
     .hero{padding-top:78px}
     form{padding:24px}
   }
@@ -89,14 +76,15 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Booking Enquiry</div>
-        <h1>Start with a conversation.</h1>
-        <p class="lead">Use this form to book a consultation for Equip's holistic support programme, academic support or Mindskills.</p>
+        <div class="eyebrow">Counselling Enquiry</div>
+        <h1>Tell us what counselling support you need.</h1>
+        <p class="lead">Use this form for counselling, psychotherapy or sport psychology enquiries. We will guide you toward the right person and next step.</p>
+        <p class="lead">Please keep the message practical and brief. You do not need to include private clinical details here.</p>
       </div>
       <aside class="contact-panel">
-        <h2>Prefer direct contact?</h2>
-        <p>You can also email or WhatsApp Equip and we will come back to you.</p>
-        <a href="mailto:info@equipgroup.org">info@equipgroup.org</a>
+        <h2>Free online counselling</h2>
+        <p>If you are enquiring about free online counselling, you can also email or WhatsApp us directly.</p>
+        <a href="mailto:online@equipgroup.org">online@equipgroup.org</a>
         <a href="https://wa.me/27658450701">WhatsApp 0658450701</a>
       </aside>
     </div>
@@ -105,11 +93,11 @@
   <section>
     <div class="wrap form-layout">
       <form action="https://formsubmit.co/info@equipgroup.org" method="POST">
-        <input type="hidden" name="_subject" value="New Equip consultation enquiry">
+        <input type="hidden" name="_subject" value="New Equip counselling enquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://www.equipgroup.co.za/thank-you.html">
-        <input type="hidden" name="_url" value="https://www.equipgroup.co.za/booking.html">
+        <input type="hidden" name="_url" value="https://www.equipgroup.co.za/counselling-booking.html">
         <input class="hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off">
 
         <div class="field-grid">
@@ -130,14 +118,24 @@
             <select id="support-for" name="support_for" required>
               <option value="">Please choose</option>
               <option>My child</option>
+              <option>Myself</option>
+              <option>My partner or relationship</option>
               <option>My family</option>
-              <option>My school or organisation</option>
               <option>I am not sure yet</option>
             </select>
           </div>
           <div class="field">
-            <label for="location">Preferred location</label>
-            <select id="location" name="preferred_location" required>
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Please choose</option>
+              <option>Counselling</option>
+              <option>Psychotherapy</option>
+              <option>Sport Psychology</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="location">Preferred format</label>
+            <select id="location" name="preferred_format" required>
               <option value="">Please choose</option>
               <option>Online</option>
               <option>KZN North Coast</option>
@@ -145,11 +143,24 @@
               <option>I am flexible</option>
             </select>
           </div>
+          <div class="field">
+            <label for="practitioner">Preferred practitioner</label>
+            <select id="practitioner" name="preferred_practitioner">
+              <option>No preference</option>
+              <option>Nic Venter</option>
+              <option>Stephanie Wernberg</option>
+              <option>Sach Galhenage</option>
+              <option>Emma Rossouw</option>
+              <option>Tashlene Cronje</option>
+              <option>Cleo Sirin</option>
+              <option>Fred Turner</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
           <label for="message">Short message</label>
-          <textarea id="message" name="message" placeholder="A few lines is enough. You can mention your child's grade, the support you are considering, preferred location or practical timing." required></textarea>
+          <textarea id="message" name="message" placeholder="A few practical details are enough. You can mention preferred times, online or in-person preference, and who the support is for." required></textarea>
         </div>
 
         <label class="privacy">
@@ -157,7 +168,7 @@
           <span>I understand this is an enquiry form and not an emergency service. Equip will respond as soon as possible.</span>
         </label>
 
-        <button class="button" type="submit">Send consultation enquiry</button>
+        <button class="button" type="submit">Send counselling enquiry</button>
       </form>
     </div>
   </section>
@@ -173,4 +184,3 @@
 </footer>
 </body>
 </html>
-

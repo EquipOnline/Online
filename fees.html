@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fees | Equip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--teal:#0b4746;--teal-deep:#083f3f;--teal-bright:#16bebe;--paper:#f6f2ec;--paper-2:#f0f4f2;--ink:#12302f;--muted:#5d7070;--gold:#c98635;--white:#fffdf8;--line:rgba(18,48,47,.13)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  header{position:sticky;top:0;z-index:10;background:rgba(8,63,63,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .logo{width:276px;height:74px;background:url("equip-assets/equip-header-logo-white.png") left center/contain no-repeat;filter:drop-shadow(0 0 10px rgba(255,255,255,.18))}
+  nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  nav a{color:var(--white);font-size:14px;font-weight:500}
+  nav a.nav-cta{min-width:168px;padding:11px 24px;border-radius:30px;background:var(--teal-bright);color:var(--teal-deep);font-size:13px;font-weight:700;text-align:center;white-space:nowrap}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.04}
+  .eyebrow{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--gold);margin-bottom:18px}
+  .hero{background:var(--teal);color:var(--white);padding:112px 0 88px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:72px;align-items:center}
+  h1{font-size:clamp(46px,7vw,86px);max-width:760px}
+  .lead{font-size:18px;color:rgba(255,255,255,.74);max-width:680px;margin-top:28px}
+  .hero-mark{width:100%;max-width:440px;justify-self:end;display:block;filter:drop-shadow(0 24px 60px rgba(0,0,0,.16))}
+  section{padding:96px 0}
+  .section-head{display:flex;justify-content:space-between;gap:34px;align-items:end;margin-bottom:34px}
+  .section-head p{max-width:560px;color:var(--muted);font-size:16px}
+  h2{font-size:clamp(34px,4vw,54px);margin-bottom:0}
+  .fee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fee-card{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:28px;display:flex;flex-direction:column;min-height:270px}
+  .fee-card h3{font-size:25px;margin-bottom:8px}
+  .fee-card p{color:var(--muted);font-size:15px;margin-bottom:22px}
+  .price{font-family:Fraunces,Georgia,serif;font-size:clamp(36px,4vw,52px);line-height:1;color:var(--teal-deep);margin-top:auto}
+  .price span{display:block;font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:.04em;text-transform:uppercase;margin-top:10px}
+  .wide{grid-column:span 2}
+  .included{background:var(--paper-2)}
+  .note-card{border:1px solid var(--line);border-radius:8px;background:var(--white);padding:34px;display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:start}
+  .note-card h2{font-size:clamp(30px,4vw,46px)}
+  .note-card p{color:var(--muted);font-size:16px;margin-bottom:12px}
+  .cta{background:var(--teal);color:var(--white);padding:72px 0}
+  .cta-inner{display:flex;justify-content:space-between;gap:28px;align-items:center}
+  .cta h2{font-size:clamp(30px,4vw,48px);margin:0}
+  .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--teal-bright);color:var(--teal-deep);font-weight:700}
+  .button.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.35)}
+  footer{background:#062f2f;color:rgba(255,255,255,.68);padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:var(--white)}
+  @media (max-width:900px){
+    .nav{height:auto;padding:18px 0;align-items:flex-start}
+    .logo{width:220px;height:60px}
+    .hero-grid,.fee-grid,.note-card{grid-template-columns:1fr}
+    .hero{padding-top:78px}
+    .hero-mark{justify-self:start;max-width:320px}
+    .section-head,.cta-inner{display:block}
+    .wide{grid-column:auto}
+    .actions{margin-top:24px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html#top" aria-label="Equip home"></a>
+    <nav>
+      <a href="index.html#process">Our Process</a>
+      <a href="about.html">About Us</a>
+      <a href="academic-support.html">Academic Support</a>
+      <a href="mindskills.html">Mindskills</a>
+      <a href="counselling.html">Counselling</a>
+      <a href="fees.html">Fees</a>
+      <a href="booking.html" class="nav-cta">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Equip Fees</div>
+        <h1>Clear fees for the right kind of support.</h1>
+        <p class="lead">Start with the support pathway that fits best. If you are unsure, book a consultation and we will help you choose the right next step before anything is confirmed.</p>
+      </div>
+      <img class="hero-mark" src="equip-assets/three-circle-model.png" alt="Equip whole-child support model">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Academic Support</div>
+          <h2>Academic support and holistic programme.</h2>
+        </div>
+        <p>For families who want learning support that also considers confidence, emotions and the whole child.</p>
+      </div>
+      <div class="fee-grid">
+        <article class="fee-card wide">
+          <h3>Initial consultation</h3>
+          <p>A first conversation to understand your child, family context and the kind of support that may fit best.</p>
+          <div class="price">Free<span>Before lessons begin</span></div>
+        </article>
+        <article class="fee-card">
+          <h3>Lessons</h3>
+          <p>Academic support or holistic programme lessons after the consultation.</p>
+          <div class="price">R450<span>Per lesson</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="included">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Mindskills</div>
+          <h2>Mindskills programme fees.</h2>
+        </div>
+        <p>Mindskills can be done online, live, in person, or in school groups depending on the child and setting.</p>
+      </div>
+      <div class="fee-grid">
+        <article class="fee-card">
+          <h3>Online Flexi</h3>
+          <p>A 10-week Mindskills programme that can be completed flexibly online.</p>
+          <div class="price">R1200<span>10-week programme</span></div>
+        </article>
+        <article class="fee-card">
+          <h3>Online Live</h3>
+          <p>Live online Mindskills lessons with guided support.</p>
+          <div class="price">R300<span>Per lesson</span></div>
+        </article>
+        <article class="fee-card">
+          <h3>Online Live Package</h3>
+          <p>A full online live Mindskills programme package.</p>
+          <div class="price">R3600<span>Full programme</span></div>
+        </article>
+        <article class="fee-card">
+          <h3>In-person 1-on-1</h3>
+          <p>Individual in-person Mindskills sessions.</p>
+          <div class="price">R300<span>Per lesson</span></div>
+        </article>
+        <article class="fee-card wide">
+          <h3>School groups</h3>
+          <p>Mindskills group sessions for schools with five or more students.</p>
+          <div class="price">R150<span>Per student, per lesson</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap note-card">
+      <div>
+        <div class="eyebrow">Counselling</div>
+        <h2>Counselling fees.</h2>
+      </div>
+      <div>
+        <p>Counselling, psychotherapy, trauma counselling and sport psychology fees are subject to discussion with the counsellor.</p>
+        <p>This allows the fee and format to be matched to the type of support, practitioner and context before sessions are confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <h2>Ready to talk through the right option?</h2>
+      <div class="actions">
+        <a class="button" href="booking.html">Book a consultation</a>
+        <a class="button secondary" href="counselling-booking.html">Counselling enquiry</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 EQUIP. All rights reserved.</span>
+    <span><a href="mailto:info@equipgroup.org">info@equipgroup.org</a></span>
+    <span><a href="https://wa.me/27658450701">WhatsApp 0658450701</a></span>
+    <span>Locations: Online &middot; KZN North Coast &middot; Cape Town</span>
+  </div>
+</footer>
+</body>
+</html>
